@@ -29,7 +29,10 @@ class User extends CI_Controller
 		if ($this->form_validation->run() == FALSE)
         {
 			// fails
+			$this->load->view('header');
 			$this->load->view('user_registration_view');
+			$this->load->view('footer');
+			
         }
 		else
 		{
