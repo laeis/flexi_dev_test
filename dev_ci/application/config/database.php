@@ -81,7 +81,7 @@ $db['default'] = array(
 	'password' => '',
 	'database' => 'dev_wp',
 	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
+	'dbprefix' => 'wp_',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,

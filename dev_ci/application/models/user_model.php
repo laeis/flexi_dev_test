@@ -10,7 +10,7 @@ class User_model extends CI_Model
 	//insert into user table
 	function insertUser($data)
     {
-		return $this->db->insert('user', $data);
+		return $this->db->insert('users', $data);
 	}
 	
 	//send verification email to user's email id
@@ -45,6 +45,6 @@ class User_model extends CI_Model
 	{
 		$data = array('status' => 1);
 		$this->db->where('md5(email)', $key);
-		return $this->db->update('user', $data);
+		return $this->db->update('users', $data);
 	}
 }

@@ -9,10 +9,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</head>
 	<body>
-		<div class="wrapper">
-			<header>
-				<div ></div>
-			</header>
-			<nav>
-				<div ></div>
-			</nav>
+		<div class="wrapper container-fluid">
+			<div class="container">
+			
+				<header>
+					 	<h1></h1>
+				</header>
+				<nav>
+					<div ></div>
+				</nav>
+			</div>
