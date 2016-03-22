@@ -10,7 +10,16 @@ class User_model extends CI_Model
 	//insert into user table
 	function insertUser($data)
     {
-		return $this->db->insert('users', $data);
+		if( $this->db->insert('users', $data) ){
+			return $this->db->insert_id();
+		} else {
+			return false;
+		}
+	}
+
+	function insertUserOptions($data)
+    {
+		return $this->db->insert_batch( 'usermeta', $data );
 	}
 	
 	//send verification email to user's email id

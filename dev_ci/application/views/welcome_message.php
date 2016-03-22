@@ -6,9 +6,10 @@
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3">
 			<div id="body" class="text-center">
-				<button id="login_button" type="button" class="btn btn-primary btn-lg" >Login</button>
+
+				<?php echo anchor('user', 'Login', array( 'title' => 'Login', 'id' => "login_button", 'class' => "btn btn-primary btn-lg"  ) ); ?>			
 				<span>OR</span>
-				<button id="register_button" type="button" class="btn btn-primary btn-lg">Register</button>
+				<?php echo anchor('user/register', 'Register', array( 'title' => 'Registration', 'id' => "register_button", 'class' => "btn btn-primary btn-lg"  ) ); ?>
 			</div>
 		</div>
 	</div>
