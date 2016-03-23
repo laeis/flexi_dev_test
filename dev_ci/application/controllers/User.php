@@ -22,7 +22,7 @@ class User extends CI_Controller {
 			redirect('/');
 		}
 		if( isset( $_POST['register-user'] ) ) {
-			$this->form_validation->set_rules('username', 'Username', 'trim|required|alpha|min_length[3]|max_length[30]|xss_clean|is_unique[users.user_nicename]');
+			$this->form_validation->set_rules('username', 'Username', 'trim|required|alpha_dash|min_length[3]|max_length[30]|xss_clean|is_unique[users.user_nicename]');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.user_email]');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 			$this->form_validation->set_rules('cpassword', 'Confirm Password', 'trim|required|matches[password]');
@@ -86,7 +86,7 @@ class User extends CI_Controller {
 			redirect('/');
 		}
 		// set validation rules
-		$this->form_validation->set_rules( 'username', 'Username', 'trim|required|alpha|min_length[3]|max_length[30]|xss_clean' );
+		$this->form_validation->set_rules( 'username', 'Username', 'trim|required|alpha_dash|min_length[3]|max_length[30]|xss_clean' );
 		$this->form_validation->set_rules( 'password', 'Password', 'trim|required' );
 		if( isset( $_POST['login-user'] ) )	{
 			if ( $this->form_validation->run() == false) {

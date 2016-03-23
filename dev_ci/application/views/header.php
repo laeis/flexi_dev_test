@@ -28,8 +28,9 @@
 								<?php } ?>
 							</ul>
 						</nav>
-						<h3 class="text-muted">Welcome to CodeIgniter</h3>
+						<h3 class="text-muted"><?php echo anchor('/', 'Welcome to CodeIgniter', array( 'title' => 'Home', 'class' => "home-logo"  ) );  ?></h3>
 					</div>
 				</header>
 			</div>
+
 		

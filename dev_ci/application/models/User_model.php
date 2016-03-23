@@ -1,4 +1,6 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class User_model extends CI_Model
 {
 	function __construct()
@@ -65,7 +67,6 @@ class User_model extends CI_Model
 		$this->db->from( 'users' );
 		$this->db->where( 'user_login', $username );
 		$hash = $this->db->get()->row( 'user_pass' );
-		var_dump($hash);
 		return $this->passwordhash->CheckPassword( $password, $hash );
 		
 	}

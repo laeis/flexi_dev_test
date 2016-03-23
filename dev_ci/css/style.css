@@ -4,3 +4,7 @@
 .wrapper-header .nav li{
 	margin: auto 1em;
 }
+.wrapper-header .home-logo{
+	color: inherit;
+	text-decoration: none;
+}

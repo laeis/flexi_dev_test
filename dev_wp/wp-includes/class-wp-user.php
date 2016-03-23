@@ -237,7 +237,7 @@ class WP_User {
 			return false;
 
 		update_user_caches( $user );
-
+		
 		return $user;
 	}
 

@@ -26,6 +26,7 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index() {
+		var_dump(  $this->session->userdata['logged_in']['user_ID'] );
 		$this->load->view('header');
 		$this->load->view('welcome_message');
 		$this->load->view('footer');
