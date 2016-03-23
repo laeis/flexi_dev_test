@@ -22,8 +22,7 @@ class User extends CI_Controller
 	}
 
     function register()
-    {
-		//set validation rules
+    {//set validation rules
 		$this->form_validation->set_rules('fname', 'First Name', 'trim|required|alpha|min_length[3]|max_length[30]|xss_clean');
 		$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|alpha|min_length[3]|max_length[30]|xss_clean');
 		$this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email|is_unique[users.user_email]');

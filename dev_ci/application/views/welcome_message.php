@@ -1,15 +1,21 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<h1 class="text-center" >Welcome to CodeIgniter site!</h1>
+		<div class="col-xs-12 col-sm-10 col-sm-offset-3 col-md-8 col-md-offset-2">
+			<p><?php echo $this->session->flashdata('verify_msg'); ?></p>
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3">
 			<div id="body" class="text-center">
-
-				<?php echo anchor('user', 'Login', array( 'title' => 'Login', 'id' => "login_button", 'class' => "btn btn-primary btn-lg"  ) ); ?>			
-				<span>OR</span>
-				<?php echo anchor('user/register', 'Register', array( 'title' => 'Registration', 'id' => "register_button", 'class' => "btn btn-primary btn-lg"  ) ); ?>
+				<?php  if ( isset( $this->session->userdata['logged_in'] ) ) { ?>
+					<div class="col-md-12">
+						<div class="page-header">
+							<h1>Login success!</h1>
+						</div>
+						<p>You are now logged in.</p>
+					</div>
+				<?php } else { ?>
+				
+				<?php } ?>
 			</div>
 		</div>
 	</div>
