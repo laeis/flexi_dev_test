@@ -102,8 +102,8 @@ Biographical Info</label>
 		<div class="form-group">
 			<label for="input_avatar" class="col-sm-3 control-label">Profile Picture</label>
 			<div class="col-sm-9">
-				<img id="avatar_img" src="<?php $avatar_image_url ?>" >
-				<button id="input_avatar" type="button" class="btn btn-primary">Upload Picture</button>
+				<img id="avatar_img" src="<?php echo !empty( $avatar_image_url ) ? $avatar_image_url : 'http://2.gravatar.com/avatar/5bc6ba076c0492450d2c85e80b381cd3?s=96&d=mm&r=g' ;?>" >
+				<button id="input_avatar" type="button" class="btn btn-primary" data-toggle="modal" data-target="#avatarImgModal" >Upload Picture</button>
 				<input type="hidden" name="avatar-img-id" value="<?php echo !empty( $this->input->post( 'avatar-img-id' ) ) ? $this->input->post( 'avatar-img-id' ) : $avatar_image_id ; ?>" >
 				<span class="text-danger"><?php echo form_error( 'avatar-img-id' ); ?></span> 
 			</div>
@@ -134,4 +134,38 @@ Confirm Password</label>
 			</div>
 		</div>
 	<?php echo form_close(); ?>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="avatarImgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Upload your Avatar</h4>
+			</div>
+			<div class="modal-body">
+				<?php $attributes = array( "name" => "profileAvatarForm" , "class" => "form-horizontal profile-avatar-form", "id" =>"profile_avatar_form" ); 
+					echo form_open( "user/profileAvatar", $attributes ); ?>
+					
+					<div class="form-group">
+						<div class="col-sm-9">
+							<label for="avatar_upload">File input</label>
+							<input id="avatar_upload" type="file" name="avatar-img-upload" value="">
+							<input id="avatar_upload_action" type="hidden" name="avatar-upload-action" value="1">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-9">
+							<button name="update-profile" type="submit" class="btn btn-primary">Update Profile</button>
+						</div>
+					</div>
+				<?php echo form_close(); ?>
+				<span id="avatar_danger" class="text-danger"></span>
+				<span id="avatar_success" class="text-success"></span>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
 </div>
