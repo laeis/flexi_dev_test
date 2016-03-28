@@ -14,7 +14,7 @@ class Avatar_upload_model extends CI_Model
     	/* Config for XML-RPC download image to WP site */
 		$base_url_wp = 'http://devwp.nav.loc/xmlrpc.php';
 		$base_user_wp = 'dev_admin';
-		$base_password_wp = 'devwp';
+		$base_password_wp = '1234';
 		$data = array();
 		$error = false;
 
@@ -53,7 +53,7 @@ class Avatar_upload_model extends CI_Model
 			require_once( FCPATH . "assets/IXR_Library.php" ); 
 			$XmlRpc_result = null;
 			$XmlRpc_client = new IXR_Client ( $base_url_wp );
-
+			
 			$fs = filesize( $files[0]['tmp_name'] );
 			$file = fopen ( $files[0]['tmp_name'], 'rb');
 			$data = fread ( $file, $fs );
@@ -68,6 +68,7 @@ class Avatar_upload_model extends CI_Model
 			    $XmlRpc_result = $XmlRpc_client->query(
 			        'metaWeblog.newMediaObject',$params
 			    );
+			    
 			    $data_image = $XmlRpc_client->getResponse();
 			    if( !empty(  $data_image['faultCode'] ) ){
 			    	$error['upload_to_blog'] = $data_image['faultString'];

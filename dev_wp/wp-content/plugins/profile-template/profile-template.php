@@ -198,6 +198,17 @@ if( ! function_exists( 'add_avatar_image' ) ){
 	}
 }
 
+if( !function_exists( 'my_wp_nav_menu_args' ) ){
+	function my_wp_nav_menu_args( $args = '' ) {
+		if( is_user_logged_in() ) { 
+			$args['menu'] = 'main login';
+		} else { 
+			$args['menu'] = 'main';
+		} 
+		return $args;
+	}
+}
+
 add_action( 'wp_loaded', 'add_my_templates' );
 
 add_action( 'wp_enqueue_scripts', 'my_scripts_enqueue' );
@@ -206,4 +217,4 @@ add_filter( 'insert_user_meta', 'insert_user_avatar', 3, 10 );
 
 add_action( 'wp_ajax_add_avatar_image', 'add_avatar_image' );
 
-
+add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );

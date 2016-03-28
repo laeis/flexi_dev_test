@@ -769,7 +769,6 @@ class IXR_Error
     </value>
   </fault>
 </methodResponse>
-
 EOD;
         return $xml;
     }
